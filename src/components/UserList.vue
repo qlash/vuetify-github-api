@@ -18,9 +18,20 @@
         <v-card-title class="text-center justify-center">
           {{ user | nameLoginCombine }}
         </v-card-title>
-        <v-card-subtitle class="text-center justify-center">
-          Account created: {{ user.created | fromNow }}
-        </v-card-subtitle>
+        <v-tooltip
+          top
+          nudge-top="-25"
+        >
+          <template v-slot:activator="{ on }">
+            <v-card-subtitle
+              class="text-center justify-center"
+              v-on="on"
+            >
+              Account created: {{ user.created | fromNow }}
+            </v-card-subtitle>
+          </template>
+          <span>{{ user.created | datetime }}</span>
+        </v-tooltip>
       </ColumnListItem>
     </template>
   </ColumnList>
