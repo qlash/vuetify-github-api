@@ -1,6 +1,7 @@
 'use strict'
 
 import Vue from 'vue'
+import Vuex from 'vuex'
 import axios from 'axios'
 
 // Full config:  https://github.com/axios/axios#request-config
@@ -9,8 +10,8 @@ import axios from 'axios'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const config = {
-  // baseURL: process.env.baseURL || process.env.apiUrl || ""
-  // timeout: 60 * 1000, // Timeout
+  baseURL: process.env.VUE_APP_API,
+  timeout: 60 * 1000 // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 }
 
@@ -41,6 +42,7 @@ _axios.interceptors.response.use(
 
 Plugin.install = function (Vue, options) {
   Vue.axios = _axios
+  Vuex.Store.prototype.axios = _axios
   window.axios = _axios
   Object.defineProperties(Vue.prototype, {
     axios: {
