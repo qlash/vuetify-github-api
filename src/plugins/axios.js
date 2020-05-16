@@ -9,9 +9,18 @@ import axios from 'axios'
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
+const headers = {
+  Accept: 'application/vnd.github.cloak-preview'
+}
+
+if (process.env.VUE_APP_GITHUB_TOKEN) {
+  headers.Authorization = `Token ${process.env.VUE_APP_GITHUB_TOKEN}`
+}
+
 const config = {
   baseURL: process.env.VUE_APP_API,
-  timeout: 60 * 1000 // Timeout
+  timeout: 60 * 1000, // Timeout
+  headers
   // withCredentials: true, // Check cross-site Access-Control
 }
 
