@@ -8,6 +8,7 @@
         text
         to="/"
         active-class="no-active"
+        :ripple="false"
       >
         <v-img
           alt="Vuetify Logo"
@@ -22,35 +23,23 @@
           {{ title }}
         </h1>
       </v-btn>
-
-      <v-spacer />
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld />
+      <TokenAlert />
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import TokenAlert from '@/components/TokenAlert'
 
 export default {
   name: 'App',
-
   components: {
-    HelloWorld
+    TokenAlert
   },
-
   data: () => ({
     title: process.env.VUE_APP_TITLE
   })
