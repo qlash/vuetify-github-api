@@ -20,17 +20,20 @@
 <script>
 import UserList from '@/components/UserList'
 import OrganizationList from '@/components/OrganizationList'
+import ReposList from '@/components/ReposList'
 
 export default {
   name: 'Home',
   components: {
     UserList,
-    OrganizationList
+    OrganizationList,
+    ReposList
   },
   data: () => ({
     columns: {
       OrganizationList,
-      UserList
+      UserList,
+      ReposList
     }
   })
 }
